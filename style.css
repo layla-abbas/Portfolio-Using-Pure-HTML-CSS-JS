@@ -1,0 +1,3369 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  font-family: "Rubik Scribble", system-ui;
+  font-weight: 900;
+  font-style: normal;
+}
+html {
+  scroll-behavior: smooth;
+  background-color: #fff7fc;
+  transition: 0.3s;
+}
+html.active {
+  background-color: #191919;
+}
+.dark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+#toggle {
+  position: relative;
+  display: block;
+  width: 80px;
+  height: 40px;
+  border-radius: 40px;
+  background-color: #736da2;
+  transition: 0.3s;
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+    inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+  margin-right: 80px;
+  margin-top: 70px;
+  cursor: pointer;
+}
+
+#toggle.active {
+  background: rgb(193, 192, 192);
+  box-shadow: inset 0 2px 60px rgba(0, 0, 0, 0.1),
+    inset 0 2px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 8px rgba(0, 0, 0, 0.05);
+}
+
+#toggle .indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(to bottom, #4f4a7a, #453f78);
+  transition: 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#toggle .indicator .fa-moon {
+  color: #fff7fc;
+}
+#toggle .indicator .fa-sun {
+  display: none;
+}
+#toggle.active .indicator .fa-moon {
+  display: none;
+}
+
+#toggle.active .indicator .fa-sun {
+  display: inline;
+  color: #000;
+}
+
+#toggle.active .indicator {
+  left: 40px;
+  background: linear-gradient(to bottom, #eaeaea, #f9f9f9);
+  box-shadow: inset 0 8px 60px rgba(0, 0, 0, 0.1),
+    inset 0 8px 8px rgba(0, 0, 0, 0.1), inset 0 -4px 4px rgba(0, 0, 0, 0.1);
+}
+#container {
+  overflow: hidden;
+}
+
+header {
+  margin-bottom: 190px;
+}
+nav ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  animation-delay: 0.5s;
+}
+
+nav ul li {
+  padding-top: 25px;
+}
+
+nav ul i  {
+  font-size: 23px;
+  padding: 10px;
+  color: #912bbc;
+ 
+  animation: gost 2.5s linear infinite;
+}
+
+@keyframes gost {
+  0% {
+    transform: translateY(0);
+    color: #6ad4dd;
+  }
+  50% {
+    transform: translateY(70px);
+    color: #d875c7;
+  }
+  100% {
+    transform: translateY(0);
+    color: #6ad4dd;
+  }
+}
+nav ul li a {
+  font-size: 30px;
+  text-decoration-line: none;
+  padding: 15px;
+  color: #7aa2e3;
+  letter-spacing: 2px;
+}
+nav ul li a span {
+  color: #6ad4dd;
+}
+
+nav ul li a:hover {
+  color: #6ad4dd;
+}
+
+nav ul li a span:hover {
+  color: #7aa2e3;
+}
+.spiderweb {
+  background-color: #5f5f5f;
+  width: 2px;
+  height: 200px;
+  margin-left: 49px;
+}
+
+.spider {
+  position: absolute;
+  display: inline;
+  top: 0;
+  left: 5%;
+  animation: swing 2s infinite;
+  transform-origin: top;
+  scale: 0.8;
+}
+
+.spider .body {
+  width: 100px;
+  height: 80px;
+  background-color: #453f78;
+  position: relative;
+  border-radius: 50%;
+}
+
+.spider .body .eye {
+  width: 33px;
+  height: 33px;
+  background-color: #fff;
+  position: absolute;
+  bottom: 20px;
+  border-radius: 50%;
+}
+
+.spider .body .eye.right {
+  right: 15px;
+}
+
+.spider .body .eye.left {
+  left: 15px;
+}
+
+.spider .eye::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  display: block;
+  margin: 55%;
+  background-color: #000;
+  border-radius: 50%;
+  animation: look 2s infinite;
+}
+
+.spider .legs {
+  position: absolute;
+  bottom: -10%;
+  z-index: -1;
+}
+
+.spider .legs .leg {
+  width: 80px;
+  height: 40px;
+  margin-top: -20px;
+  border: 5px solid transparent;
+  border-top-color: #453f78;
+  border-radius: 40px 40px 0 0;
+}
+
+.spider .legs.left {
+  left: -60%;
+}
+
+.spider .legs.right {
+  right: -60%;
+}
+
+.legs.left .leg:nth-child(1) {
+  transform: rotate(10deg);
+  margin-left: 10px;
+}
+
+.legs.right .leg:nth-child(1) {
+  transform: rotate(-10deg);
+  margin-left: -10px;
+}
+
+.legs.left .leg:nth-child(2) {
+  transform: rotate(-20deg);
+  margin-left: 20px;
+}
+
+.legs.right .leg:nth-child(2) {
+  transform: rotate(20deg);
+  margin-left: -20px;
+}
+
+.legs.left .leg:nth-child(3) {
+  transform: rotate(-50deg);
+  margin-left: 30px;
+}
+
+.legs.right .leg:nth-child(3) {
+  transform: rotate(50deg);
+  margin-left: -30px;
+}
+
+@keyframes look {
+  0%,
+  40%,
+  100% {
+    transform: translateX(0);
+  }
+  45%,
+  95% {
+    transform: translateX(-110%);
+  }
+}
+
+@keyframes swing {
+  0%,
+  100% {
+    transform: translatey(0);
+  }
+  50% {
+    transform: translatey(-20px);
+  }
+}
+header .text {
+  text-align: center;
+  margin-top: 60px;
+}
+header .text h1 {
+  font-size: 60px;
+  letter-spacing: 2px;
+  margin-bottom: 70px;
+  animation-delay: 1s;
+  color: #d875c7;
+  -webkit-box-reflect: below 8px
+    linear-gradient(transparent, rgba(0, 0, 0, 0.17));
+  line-height: 0.7em;
+  outline: none;
+}
+
+header .text p {
+  margin-bottom: 30px;
+  font-size: 55px;
+  animation-delay: 1.5s;
+  color: #912bbc;
+  -webkit-box-reflect: below 8px
+    linear-gradient(transparent, rgba(0, 0, 0, 0.17));
+  line-height: 0.7em;
+  outline: none;
+  line-height: 60px;
+}
+
+.anim {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: movup 1s linear forwards;
+}
+
+@keyframes movup {
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+main .h1 h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 27px;
+  color: #ff71cd;
+  letter-spacing: 2px;
+}
+
+main .aboutme .conta {
+  margin-bottom: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+main .aboutme .text {
+  width: 50%;
+}
+
+main .aboutme .text p {
+  font-size: 20px;
+  border: 3px solid #5755fe;
+  padding: 15px;
+  border-radius: 10px;
+  line-height: 40px;
+  letter-spacing: 1px;
+  color: #bc7af9;
+}
+
+main .aboutme .text p span {
+  color: #ff71cd;
+}
+
+.cat-container {
+  scale: 1.1;
+  width: 25em;
+  height: 50%;
+  perspective: 50em;
+  margin-bottom: 200px;
+}
+
+.face {
+  background-color: #4d4dc4;
+  height: 7.5em;
+  width: 11.25em;
+  transform: translateX(50%);
+  border-radius: 0 0 3.12em 3.12em;
+}
+
+.face::after,
+.face::before {
+  position: absolute;
+  content: "";
+  height: 0.4em;
+  width: 0.9em;
+  border: 0.43em solid #181758;
+  border-bottom: none;
+  border-radius: 1.25em 1.25em 0 0;
+  top: 1.87em;
+}
+
+.face::before {
+  left: 3.12em;
+}
+.face::after {
+  right: 3.12em;
+}
+
+.ear-l,
+.ear-r {
+  position: absolute;
+  background-color: #f589aa;
+  height: 1.87em;
+  width: 0.93em;
+  bottom: 6.87em;
+}
+
+.ear-l {
+  border-radius: 0 3.75em 3.75em 0;
+  left: 0.62em;
+  box-shadow: 0 0 0 0.62em #4d4dc4, 4.18em 0.3em 0 -0.06em #4d4dc4;
+}
+
+.ear-r {
+  border-radius: 3.75em 0 0 3.75em;
+  right: 0.62em;
+  box-shadow: 0 0 0 0.62em #4d4dc4, -4.18em 0.3em 0 -0.06em #4d4dc4;
+}
+
+.ear-l::before {
+  position: absolute;
+  content: "";
+  height: 1.25em;
+  width: 1.25em;
+  background-color: #181758;
+  border-radius: 50%;
+  top: 5em;
+  left: 4.37em;
+  box-shadow: -2.18em 0 0 -0.37em #2f319f, 2.18em 0 0 -0.37em #2f319f,
+    -3.43em 0 0 -0.37em #2f319f, 3.34em 0 0 -0.37em #2f319f;
+}
+
+.ear-l::after {
+  position: absolute;
+  content: "";
+  height: 1.25em;
+  width: 3.12em;
+  background-color: #2f319f;
+  top: 8.74em;
+  left: 3.34em;
+}
+
+.ear-r::before {
+  position: absolute;
+  content: "";
+  height: 5em;
+  width: 5em;
+  background-color: #a7acf5;
+  top: 12.18em;
+  left: -6.25em;
+  box-shadow: 0 0 0 2.5em #4d4dc4;
+  border-radius: 1.87em;
+}
+
+.ear-r::after {
+  position: absolute;
+  content: "";
+  height: 0.62em;
+  width: 0.62em;
+  background-color: #4d4dc4;
+  top: 15.62em;
+  left: -4.07em;
+  border-radius: 50%;
+}
+
+.hand-l {
+  position: absolute;
+  height: 6em;
+  width: 4em;
+  border: 1.25em solid #4d4dc4;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 3.12em 0.62em 0.62em 0.62em;
+  top: 10.4em;
+  left: 4em;
+  animation: move-hal-l 6s infinite;
+  transform-origin: 104% 0;
+  transform-style: preserve-3d;
+}
+
+@keyframes move-hal-l {
+  50% {
+    transform: rotateX(180deg);
+  }
+}
+
+.hand-l::before {
+  position: absolute;
+  content: "";
+  height: 1.25em;
+  width: 0.62em;
+  background-color: #4d4dc4;
+  bottom: -0.62em;
+  left: -0.62em;
+  border-radius: 0.62em;
+}
+
+.hand-r {
+  position: absolute;
+  height: 6em;
+  width: 4em;
+  border: 1.25em solid #4d4dc4;
+  border-top: none;
+  border-left: none;
+  border-radius: 0.62em 0.62em 3.12em 0.62em;
+  top: 3.2em;
+  right: 6em;
+  animation: move-har-r 6s infinite;
+  transform-origin: 0 100%;
+  transform-style: preserve-3d;
+}
+
+@keyframes move-har-r {
+  50% {
+    transform: rotateX(-180deg);
+  }
+}
+
+.hand-r::before {
+  position: absolute;
+  content: "";
+  height: 1.25em;
+  width: 1.87em;
+  background-color: #4d4dc4;
+  left: 3.7em;
+  border-radius: 0 0 0.62em 0.62em;
+}
+
+.hand-r::after {
+  position: absolute;
+  content: "";
+  height: 1.25em;
+  width: 0.62em;
+  background-color: #4d4dc4;
+  left: 3.68em;
+  top: -0.62em;
+  border-radius: 1.25em;
+  box-shadow: 1.25em 0 #4d4dc4;
+}
+
+.leg-l,
+.leg-r {
+  height: 4.37em;
+  width: 1.87em;
+  background-color: #2f319f;
+  position: absolute;
+  top: 17em;
+  z-index: -1;
+}
+.leg-l {
+  left: 12.5em;
+  animation: stamp 2s infinite;
+}
+
+.leg-r {
+  right: 14.5em;
+}
+
+@keyframes stamp {
+  50% {
+    transform: translateY(-1.25em);
+  }
+}
+
+.leg-l::before,
+.leg-r::before {
+  position: absolute;
+  content: "";
+  height: 1.25em;
+  width: 2.5em;
+  background-color: #4d4dc4;
+  top: 3.15em;
+  left: -0.31em;
+  border-radius: 0.94em 0.94em 0 0;
+}
+
+.music-note {
+  position: absolute;
+  height: 0.62em;
+  width: 2.5em;
+  background-color: #181758;
+  transform: scale(0.2);
+  left: 13.55em;
+  top: -2em;
+  border-radius: 1.25em;
+  animation: music 2s infinite;
+}
+
+@keyframes music {
+  100% {
+    transform: scale(2);
+    transform: translate(14.25em -14.25em);
+    opacity: 0;
+  }
+}
+
+.music-note::before {
+  position: absolute;
+  content: "";
+  height: 2.5em;
+  width: 0.62em;
+  left: -3px;
+  background-color: #181758;
+  box-shadow: 2.5em 0 #181758;
+}
+
+.music-note::after {
+  position: absolute;
+  content: "";
+  height: 0.93em;
+  width: 0.93em;
+  background-color: #181758;
+  left: -0.31em;
+  top: 1.87em;
+  border-radius: 50%;
+  box-shadow: 2.5em 0 #181758;
+}
+
+.skills {
+  width: 100%;
+  margin-bottom: 100px;
+  padding-bottom: 100px;
+}
+
+.skill-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 0px 25px;
+  border: 3px solid #faa300;
+  border-radius: 10px;
+  height: 290px;
+  margin-left: 500px;
+}
+.skills .text {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 20px;
+  color: #59d5e0;
+  letter-spacing: 2px;
+}
+
+.skill-name {
+  font-size: 12px;
+  color: #000;
+  font-weight: lighter;
+  padding: 12px 0;
+  letter-spacing: 3px;
+}
+
+.skill-bar {
+  height: 14px;
+  background-color: #5d5c5c;
+  border-radius: 3px;
+}
+.skill-per {
+  height: 14px;
+  border-radius: 3px;
+  position: relative;
+  animation: fillBar 2.5s linear;
+}
+.html {
+  background-color: #59d5e0;
+}
+.htmlname {
+  color: #59d5e0;
+}
+.css {
+  background-color: #f5dd61;
+}
+.cssname {
+  color: #f5dd61;
+}
+.js {
+  background-color: #faa300;
+}
+.jsname {
+  color: #faa300;
+}
+.reactname {
+  color: #f4538a;
+}
+.react {
+  background-color: #f4538a;
+}
+.skill-per::before {
+  content: attr(per);
+  position: absolute;
+  padding: 4px 6px;
+  background-color: #5d5c5c;
+  border-radius: 4px;
+  font-size: 12px;
+  top: -35px;
+  right: 0;
+  transform: translateX(50%);
+  color: #fff7fc;
+}
+
+.skill-per::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: #5d5c5c;
+  top: -18px;
+  right: 0;
+  transform: translateX(50%) rotate(45deg);
+  border-radius: 2px;
+}
+
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+.skills .orange-cat-container {
+  height: 200px;
+  width: 350px;
+  transform: translate(-120%, 50%);
+}
+
+.orange-cat-container .cat {
+  scale: 1.6;
+  background-color: #f19b1a;
+  height: 65px;
+  width: 80px;
+  border-radius: 0 80px 80px 0;
+  position: absolute;
+  bottom: 60px;
+  right: 50px;
+}
+
+.orange-cat-container .ear {
+  background-color: #f19b1a;
+  height: 15px;
+  width: 15px;
+  border-radius: 20px 0 0 0;
+  box-shadow: 25px 0 #f19b1a;
+  position: absolute;
+  bottom: 64px;
+  left: 8px;
+}
+
+.orange-cat-container .eye,
+.orange-cat-container .eye:before {
+  height: 7px;
+  width: 10px;
+  border: 2px solid #2c2c2c;
+  position: absolute;
+  border-radius: 0 0 15px 15px;
+  border-top: none;
+}
+
+.orange-cat-container .eye {
+  left: 15px;
+  top: 18px;
+}
+
+.orange-cat-container .eye:before {
+  content: " ";
+  left: 30px;
+}
+
+.orange-cat-container .nose {
+  background-color: #ffffff;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  position: absolute;
+  top: 32px;
+  left: 25px;
+  box-shadow: 12px 0 #ffffff;
+}
+
+.orange-cat-container .nose::before {
+  content: "";
+  height: 8px;
+  width: 12px;
+  background-color: #ffffff;
+  position: absolute;
+  left: 6px;
+}
+
+.orange-cat-container .nose::after {
+  content: "";
+  height: 0px;
+  width: 0px;
+  border-top: 8px solid #f19b1a;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  position: absolute;
+  left: 6px;
+  bottom: 7px;
+}
+
+.orange-cat-container .mouth {
+  background-color: #2c2c2c;
+  height: 15px;
+  width: 17px;
+  border-radius: 0 0 8px 8px;
+  position: absolute;
+  top: 38px;
+  left: 28px;
+  animation: move-mouth 2s infinite;
+  transform-origin: top;
+}
+
+@keyframes move-mouth {
+  50% {
+    transform: scaleY(0.7);
+  }
+}
+
+.orange-cat-container .body {
+  background-color: #f19b1a;
+  height: 90px;
+  width: 140px;
+  position: absolute;
+  right: 65px;
+  bottom: 0.5px;
+  border-radius: 60px 60px 0 0;
+  animation: sleep 2s infinite;
+  transform-origin: bottom right;
+}
+
+@keyframes sleep {
+  50% {
+    transform: scale(0.9, 1.05);
+  }
+}
+
+.orange-cat-container .tail {
+  background-color: #d07219;
+  height: 20px;
+  width: 100px;
+  position: absolute;
+  right: 150px;
+  bottom: 0px;
+  border-radius: 20px 0 0 20px;
+}
+
+.orange-cat-container .body::before {
+  content: "";
+  height: 12px;
+  width: 30px;
+  background-color: #ffffff;
+  border-radius: 6px;
+  position: absolute;
+  bottom: 0;
+  left: 22px;
+  box-shadow: 45px 0 #ffffff;
+}
+.orange-cat-container .bubble {
+  background-color: rgba(255, 255, 255, 0.4);
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  left: 56px;
+  top: 20px;
+  border-radius: 50px 50px 50px 5px;
+  animation: bubble-scale 2s infinite;
+}
+
+@keyframes bubble-scale {
+  50% {
+    transform: scale(1.6);
+  }
+}
+.orange-cat-container .shadow {
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 10px;
+  width: 240px;
+  position: absolute;
+  bottom: 52px;
+  left: 70px;
+  border-radius: 10px;
+  animation: shadow 2s infinite;
+}
+
+@keyframes shadow {
+  50% {
+    transform: scale(0.7);
+  }
+}
+
+.projects .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.projects .text h1 {
+  padding-top: 50px;
+  text-align: center;
+  margin-bottom: 50px;
+  font-size: 27px;
+  color: #a6ff96;
+  letter-spacing: 2px;
+}
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 20px 20px;
+}
+.container .card {
+  width: 320px;
+  height: 270px;
+  border-radius: 20px;
+  position: relative;
+  box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  transition: 0.5s;
+}
+.card1 {
+  background-color: #ffa1f5;
+}
+
+.card2 {
+  background-color: #f8ff95;
+}
+
+.card3 {
+  background-color: #bc7af9;
+}
+
+.container .card:hover {
+  height: 400px;
+}
+
+.container .card .imgbx {
+  position: absolute;
+  top: 20px;
+  width: 270px;
+  height: 190px;
+  background-color: #5d5c5c;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.5s;
+}
+.container .card:hover .imgbx {
+  top: -100px;
+  scale: 0.75;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+}
+
+.container .card .imgbx img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.container .card1 .content {
+  position: absolute;
+  top: 227px;
+  height: 25px;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 30px;
+  text-align: center;
+  transition: 0.5s;
+  color: #f8ff95;
+}
+
+.container .card1 .content h2 {
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.container .card1 .content p {
+  line-height: 30px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.container .card1 .content a i {
+  margin-top: 20px;
+  font-size: 40px;
+  color: #f8ff95;
+}
+.container .card2 .content {
+  position: absolute;
+  top: 227px;
+  height: 25px;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 30px;
+  text-align: center;
+  transition: 0.5s;
+  color: #bc7af9;
+}
+
+.container .card2 .content h2 {
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.container .card2 .content p {
+  line-height: 30px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.container .card2 .content a i {
+  margin-top: 20px;
+  font-size: 40px;
+  color: #bc7af9;
+}
+
+.container .card3 .content {
+  position: absolute;
+  top: 227px;
+  height: 25px;
+  overflow: hidden;
+  width: 100%;
+  padding: 0 30px;
+  text-align: center;
+  transition: 0.5s;
+  color: #f8ff95;
+}
+
+.container .card3 .content h2 {
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+
+.container .card3 .content p {
+  line-height: 30px;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+.container .card3 .content a i {
+  margin-top: 20px;
+  font-size: 40px;
+  color: #f8ff95;
+}
+.container .card:hover .content {
+  top: 130px;
+  height: 250px;
+}
+
+.contactme {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.contactme h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 27px;
+  color: #29467a;
+  letter-spacing: 2px;
+}
+
+.contactme form {
+  width: 80%;
+  text-align: center;
+  margin-left: 60px;
+
+}
+
+form .input-box {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-box .input-field {
+  width: 43%;
+}
+.field .item {
+  width: 100%;
+  padding: 18px;
+  background: transparent;
+  border: 2px solid #FFC700;
+  outline: none;
+  border-radius: 6px;
+  margin: 13px 6px;
+  transition: 0.5s;
+}
+
+.field.error .item {
+  border: 2px solid #d93025;
+}
+.field .name {
+  border: 2px solid #FFC700;
+}
+.field .email {
+  border: 2px solid #FFC700;
+}
+.field .phone {
+  border: 2px solid #FFF455;
+}
+.field .subject {
+  border: 2px solid #FFF455;
+}
+.field .item::placeholder {
+  color: #5f5f5f;
+  letter-spacing: 2px;
+  font-size: 15px;
+}
+
+.field .item:focus {
+  border: 2px solid #29467a;
+}
+form .texterea-field .item {
+  resize: none;
+}
+form button {
+  padding: 12px 25px;
+  background-color: #29467a;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  box-shadow: 0 0 10px #29467a;
+  font-size: 14px;
+  color: #FFF455;
+  letter-spacing: 2px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 10px;
+  font-weight: 900;
+  transition: 0.8s;
+}
+form button:hover {
+  background-color: #FFF455;
+  box-shadow: 0 0 10px #FFF455;
+  color: #29467a;
+}
+
+.field .error-txt {
+  letter-spacing: 1px;
+  font-size: 12px;
+  color: #d93025;
+  text-align: left;
+  margin: -10px 0 5px 10px;
+  display: none;
+}
+
+.field.error .error-txt{
+  display: block;
+}
+.back-cat-container .container {
+  scale: 0.9;
+  height: 530px;
+}
+
+.window {
+  width: 250px;
+  height: 390px;
+  background-color: #29467a;
+  outline: 12px solid #2d2623;
+  border-left: 5px solid #439abf;
+  border-right: 5px solid #439abf;
+  position: relative;
+  top: 20px;
+  left: 45px;
+}
+
+.window::before ,
+.window::after {
+content: "";
+position: absolute;
+background: linear-gradient(#439abf 50% , #2d2623 50%);
+}
+
+.window::after {
+  width:260px ;
+  height:15px ;
+  left: -5px ;
+  top: 200px;
+}
+
+.window::before {
+  width:310px ;
+  height:15px ;
+  left: -30px ;
+ bottom: -15px;
+}
+
+.mountain-1 {
+  height:0 ;
+  width: 0;
+  border-bottom: 60px solid #22366d;
+  border-right: 20px solid transparent;
+  position: absolute;
+  bottom: 0;
+}
+
+.mountain-1::before , .mountain-1::after,
+.mountain-2::before {
+  content: "";
+  position: absolute;
+  width: 0;
+height: 0;
+border-bottom: 60px solid #22366d;
+border-right: 20px solid transparent;
+border-left: 20px solid transparent;
+}
+
+.mountain-1::before {
+  bottom: -60px;
+  left: 5px;
+}
+
+.mountain-1::after {
+bottom: -60px;
+left: 35px;
+}
+
+.mountain-2 {
+  position: absolute;
+  height: 0;
+  width: 0;
+  border-bottom: 60px solid #22366d;
+border-left: 20px solid transparent;
+right: 0;
+bottom: 0;
+}
+
+.mountain-2::before {
+  bottom: -60px;
+  right: 10px;
+}
+
+.kitty {
+  background-color: #2d2623;
+  height: 140px;
+  width: 50px;
+  position: absolute;
+  bottom: -15px ;
+  left: 95px;
+  border-radius: 40px 40px 0 0 ;
+}
+
+.kitty::before {
+  content: "";
+  position: absolute;
+  background-color: #2d2623;
+  height: 80px;
+  width: 40px;
+  border-radius: 0 80px 80px 0 ;
+  bottom: 0;
+  left: 43px;
+}
+
+.kitty::after {
+  content: "";
+  position: absolute;
+  background-color: #2d2623;
+  height: 80px;
+  width: 10px;
+  border-radius: 5px;
+  bottom: -70px;
+  left: 45px;
+transform: rotate(-15deg);
+transform-origin: top;
+animation: tail 2.8s infinite;
+}
+
+@keyframes tail {
+  50% {
+      transform: rotate(10deg);
+  }
+}
+
+.earbk {
+  height: 0;
+  width: 0;
+  border-bottom: 40px solid #2d2623;
+  border-right: 33px solid transparent;
+  position: relative;
+  bottom: 12px;
+}
+
+.earbk::before {
+  content: "";
+  height: 0;
+  width: 0;
+  border-bottom: 40px solid #2d2623;
+  border-left: 33px solid transparent;
+  position: absolute;
+  bottom: -40px;
+  left: 17px;
+}
+
+.moon {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  background-color: transparent;
+  box-shadow: -15px 8px 0 1px #e8ae4a;
+  position: absolute;
+  left: 50px;
+  top: 60px;
+}
+
+.star {
+  background-color: #e8ae4a;
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  position: absolute;
+  top: 30px;
+  left: 140px;
+  box-shadow: 80px 65px #e8ae4a ,
+  -120px 150px #e8ae4a ,
+  -80px 280px #e8ae4a ,
+  70px 235px #e8ae4a ,
+  40px 135px #e8ae4a ;
+animation: twinkle 1.5s infinite;
+}
+
+@keyframes twinkle {
+  50% {
+      opacity: 0.2;
+  }
+}
+
+.plus-cat {
+  scale: 1.2;
+  position: relative;
+  top: 380px;
+  left: 1060px;
+  
+}
+
+.plus-cat .plface {
+  background-color: #33292b;
+  width:150px ;
+  height: 90px;
+  border-radius: 30px;
+}
+
+.plus-cat .plface .plear-l ,
+.plus-cat .plface .plear-r {
+  width: 0;
+  height: 0;
+  border-bottom: 50px solid #33292b;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+position: relative;
+}
+
+.plus-cat .plface .plear-l{
+  bottom: 35px;
+  transform: rotate(-30deg);
+}
+.plus-cat .plface .plear-r{
+  bottom: 85px;
+  left: 110px;
+  transform: rotate(30deg);
+}
+
+.inner1 {
+  width: 0;
+  height: 0;
+  border-bottom: 39px solid #d36149;
+  border-left: 25px solid transparent;
+  position: relative;
+  right: 25px;
+}
+
+.inner2{
+  width: 0;
+  height: 0;
+  border-bottom: 39px solid #d36149;
+  border-right: 25px solid transparent;
+  position: relative;
+}
+
+.plus-cat .plface .pleye-l , 
+.plus-cat .plface .pleye-r {
+  background-color: #d2873b;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  position: relative;
+}
+
+.plus-cat .plface .pleye-l {
+  bottom: 75px;
+  left:30px ;
+}
+
+.plus-cat .plface .pleye-r {
+  bottom:105px ;
+  left:90px ;
+}
+
+.eyeball {
+  background-color: #262626;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  position: relative;
+  top: 3px;
+  animation: eyemove 1.5s infinite;
+}
+@keyframes eyemove {
+  50%{
+      left: 3px;
+  }
+}
+.plus-cat .plface .plnose {
+  height: 0;
+  width: 0;
+  border-top: 8px solid #d36149;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  position: relative;
+  bottom: 110px;
+  left: 68px;
+}
+
+.plus-cat .plface .plnose .l1 ,
+.plus-cat .plface .plnose .l2 {
+  background-color: #d36149;
+  height: 8px;
+  width: 1px;
+  position: relative;
+}
+
+.plus-cat .plface .plnose .l1 {
+  transform: rotate(45deg);
+  right: 4px;
+  bottom: 1.5px;
+}
+
+.plus-cat .plface .plnose .l2 {
+  transform: rotate(-45deg);
+  left: 3px;
+  bottom: 10px;
+}
+
+.plus-cat .plbody {
+  background-color: #33292b;
+  height: 120px;
+  width:130px ;
+  position: relative;
+  left: 30px;
+  bottom: 5px;
+  border-radius: 0 65px 0 0 ;
+}
+
+.plus-cat .plbody .paw-l ,
+.plus-cat .plbody .paw-r {
+  background-color: #33292b;
+  height: 10px;
+  width: 22px;
+  position: relative;
+  border-radius: 0 0 10px 10px;
+}
+
+.plus-cat .plbody .paw-l {
+  top: 120px;
+}
+
+.plus-cat .plbody .paw-r {
+  top: 110px;
+  left: 50px;
+}
+.plus-cat .plbody .tail {
+  background-color: #33292b;
+  width: 100px ;
+  height: 20px;
+  position: relative;
+  top: 80px;
+  left: 100px;
+  border-radius: 0 20px 20px 0;
+}
+
+.plus-cat .plshadow {
+  background-color: rgba(8,8,8,0.05);
+height:30px ;
+width: 150px;
+border-radius: 50%;
+position: relative;
+bottom:12px ;
+left: 0px;
+z-index: -1;
+}
+
+.icon {
+  font-size: 130px;
+  margin-left: 200px;
+  margin-bottom: 190px;
+}
+
+.icon a i{
+  padding: 10px;
+  color: #F5DD61;
+  transition: 0.5s;
+}
+
+.icon a i:hover {
+  color: #33292b;
+}
+footer {
+  width: 100%;
+  background-color: #F5DD61;
+  height: 70px;
+  text-align: center;
+  line-height: 15px;
+  padding-top: 30px;
+  margin-top: 70px;
+}
+
+footer p {
+  display: block;
+  color: #2d8160;
+  letter-spacing: 2px;
+}
+
+section .animate {
+  transition: 0.7s;
+}
+
+.aboutme .animate {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+
+.aboutme.show-animate .animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.skills .animate {
+  transform: translateX(200%);
+  opacity: 0;
+}
+
+.skills.show-animate .animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.projects .animate {
+  transform: scale(0.7);
+  opacity: 0;
+}
+
+.projects.show-animate .animate {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.contactme .animate {
+  transform: translateX(200%);
+  opacity: 0;
+}
+
+.contactme.show-animate .animate {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+.plus .animate {
+  transform: scale(0.7);
+  opacity: 0;
+}
+
+.plus.show-animate .animate {
+  transform: scale(1);
+  opacity: 1;
+}
+
+@media only screen and (max-width: 400px) and (min-width : 301px ){
+  #toggle {
+    scale: 0.4;
+    width: 80px;
+    height: 40px;
+    margin-right: 10px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 15px;
+    padding: 5px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  .gg {
+    display: none;
+  }
+ 
+  header .text h1 {
+    font-size: 25px;
+    margin-bottom: 30px;
+    letter-spacing: 2px;
+  }
+  header .text p {
+    font-size: 20px;
+    letter-spacing: 1px;
+  }
+
+  .spider {
+  display: none;
+  }
+  main .aboutme .text {
+    margin-bottom: 60px;
+    width: 90%;
+  }
+  main .aboutme .text p {
+    font-size: 10px;
+    line-height: 30px;
+    letter-spacing: 1px;
+  }
+main .h1 h1 {
+  font-size: 29px;
+}
+.cat-container {
+  display: none;
+}
+  .skill-container {
+scale: 0.7;
+margin-left:auto;
+margin-right: auto;
+  }
+  .skills .orange-cat-container {
+    margin-top: 50px;
+    scale: 0.7;
+    transform: translate(-40%, 50%);
+  }
+  .skills .text {
+    font-size: 15px;
+    margin-bottom: -10px;
+  }
+  
+.projects .text h1 {
+  font-size: 27px;
+  margin-bottom: 15px;
+}
+  .container .card {
+  scale: 0.8;
+  margin: 10px;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    display: none;
+  }
+  .contactme form {
+    scale: 0.8;
+    margin-left:30px;
+  }
+
+
+    .plus-cat {
+      scale: 0.6;
+      position: relative;
+      top: 290px;
+      left: 170px;
+    }
+    .icon {
+      font-size: 50px;
+      margin-bottom: 150px;
+      margin-left: 20px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 80px;
+      line-height: 15px;
+    }
+    footer p {
+      font-size: 18px;
+    }
+    section .animate {
+      transition: 0.5s;
+    }
+    
+  .aboutme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .aboutme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .skills .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .skills.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .projects .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .projects.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .contactme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .contactme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .plus .animate {
+    opacity: 1;
+  }
+  .plus.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 500px) and (min-width : 401px ){
+  #toggle {
+    scale: 0.6;
+    width: 80px;
+    height: 40px;
+    margin-right: 70px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 15px;
+    padding: 5px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  .gg {
+    display: none;
+  }
+ 
+  header .text h1 {
+    font-size: 30px;
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+  }
+  header .text p {
+    font-size: 25px;
+    letter-spacing: 1px;
+  }
+
+  .spider {
+  display: none;
+  }
+  main .aboutme .text {
+    margin-bottom: 60px;
+    width: 90%;
+  }
+  main .aboutme .text p {
+    font-size: 22px;
+    line-height: 40px;
+    letter-spacing: 1px;
+  }
+main .h1 h1 {
+  font-size: 29px;
+}
+.cat-container {
+  scale: 0.8;
+}
+
+  .skill-container {
+scale: 0.7;
+margin-left:auto;
+margin-right: auto;
+  }
+  .skills .orange-cat-container {
+    margin-top: 50px;
+scale: 0.8;
+transform: translate(-40%, 50%);
+  }
+  .skills .text {
+    font-size: 15px;
+  }
+  
+.projects .text h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+}
+  .container .card {
+  scale: 0.9;
+  margin: 30px;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    display: none;
+  }
+  .contactme form {
+    scale: 0.9;
+    margin-left:30px;
+  }
+
+    .plus-cat {
+      scale: 0.6;
+      position: relative;
+      top: 290px;
+      left: 190px;
+    }
+    .icon {
+      font-size: 50px;
+      margin-bottom: 150px;
+      margin-left: 20px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 80px;
+      line-height: 15px;
+    }
+    footer p {
+      font-size: 18px;
+    }
+    section .animate {
+      transition: 0.5s;
+    }
+    
+  .aboutme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .aboutme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .skills .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .skills.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .projects .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .projects.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .contactme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .contactme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .plus .animate {
+    opacity: 1;
+  }
+  .plus.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 600px) and (min-width : 501px ){
+  #toggle {
+    scale: 0.7;
+    width: 80px;
+    height: 40px;
+    margin-right: 70px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 20px;
+    padding: 8px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  .gg {
+    display: none;
+  }
+  header .text {
+    margin-top: 50px;
+  }
+  header .text h1 {
+    font-size: 40px;
+    margin-bottom: 55px;
+    letter-spacing: 2px;
+  }
+  header .text p {
+    font-size: 35px;
+    letter-spacing: 1px;
+  }
+
+  .spider {
+  display: none;
+  }
+  main .aboutme .text {
+    margin-bottom: 60px;
+    width: 90%;
+  }
+  main .aboutme .text p {
+    font-size: 22px;
+    line-height: 40px;
+    letter-spacing: 1px;
+  }
+main .h1 h1 {
+  font-size: 29px;
+}
+.cat-container {
+  scale: 0.8;
+}
+
+  .skill-container {
+scale: 0.8;
+margin-left:auto;
+margin-right: auto;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.8;
+transform: translate(-35%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  
+.projects .text h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+  .container .card {
+  scale: 1;
+  margin: 30px;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    display: none;
+  }
+  .contactme form {
+    scale: 1.1;
+    margin-left:30px;
+  }
+
+    .plus-cat {
+      scale: 0.8;
+      position: relative;
+      top: 285px;
+      left: 290px;
+    }
+    .icon {
+      font-size: 60px;
+      margin-bottom: 150px;
+      margin-left: 40px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 80px;
+      line-height: 15px;
+    }
+    footer p {
+      font-size: 18px;
+    }
+    section .animate {
+      transition: 0.5s;
+    }
+    
+  .aboutme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .aboutme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .skills .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .skills.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .projects .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .projects.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .contactme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .contactme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .plus .animate {
+    opacity: 1;
+  }
+  .plus.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 700px) and (min-width : 601px ){
+  #toggle {
+    scale: 0.8;
+    width: 80px;
+    height: 40px;
+    margin-right: 70px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 25px;
+    padding: 10px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  .gg {
+    display: none;
+  }
+  header .text {
+    margin-top: 50px;
+  }
+  header .text h1 {
+    font-size: 45px;
+    margin-bottom: 55px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 38px;
+    letter-spacing: 1px;
+  }
+
+  .spider {
+  display: none;
+  }
+  main .aboutme .text {
+    margin-bottom: 60px;
+    width: 90%;
+  }
+  main .aboutme .text p {
+    font-size: 22px;
+    line-height: 50px;
+    letter-spacing: 1px;
+  }
+main .h1 h1 {
+  font-size: 32px;
+}
+.cat-container {
+  scale: 0.9;
+}
+
+  .skill-container {
+scale: 0.8;
+margin-left:auto;
+margin-right: auto;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(50%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  
+.projects .text h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+  .container .card {
+  scale: 1;
+  margin: 30px;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    display: none;
+  }
+  .contactme form {
+    scale: 1.2;
+    margin-left:30px;
+  }
+
+    .plus-cat {
+      scale: 0.9;
+      position: relative;
+      top: 340px;
+      left: 370px;
+    }
+    .icon {
+      font-size: 70px;
+      margin-bottom: 200px;
+      margin-left: 40px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 80px;
+      line-height: 15px;
+    }
+    footer p {
+      font-size: 18px;
+    }
+    section .animate {
+      transition: 0.5s;
+    }
+    
+  .aboutme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .aboutme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .skills .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .skills.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .projects .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .projects.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .contactme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .contactme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .plus .animate {
+    opacity: 1;
+  }
+  .plus.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 800px) and (min-width : 701px ){
+  #toggle {
+    scale: 0.9;
+    width: 80px;
+    height: 40px;
+    margin-right: 70px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 30px;
+    padding: 10px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  .gg {
+    display: none;
+  }
+  header .text {
+    margin-top: 50px;
+  }
+  header .text h1 {
+    font-size: 45px;
+    margin-bottom: 55px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 38px;
+    letter-spacing: 1px;
+  }
+
+  .spider {
+  display: none;
+  }
+  main .aboutme .text {
+    margin-bottom: 60px;
+    width: 90%;
+  }
+  main .aboutme .text p {
+    font-size: 22px;
+    line-height: 50px;
+    letter-spacing: 1px;
+  }
+main .h1 h1 {
+  font-size: 32px;
+}
+.cat-container {
+  scale: 0.9;
+}
+
+  .skill-container {
+scale: 1;
+margin-left:auto;
+margin-right: auto;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(50%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 50px;
+    font-size: 24px;
+  }
+  
+.projects .text h1 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+  .container .card {
+  scale: 1;
+  margin: 30px;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    display: none;
+  }
+  .contactme form {
+    margin-left: 30px;
+    scale: 1.3;
+  }
+
+    .plus-cat {
+      scale: 1;
+      position: relative;
+      top: 340px;
+      left: 465px;
+    }
+    .icon {
+      font-size: 80px;
+      margin-bottom: 200px;
+      margin-left: 50px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 80px;
+      line-height: 15px;
+    }
+    footer p {
+      font-size: 18px;
+    }
+    section .animate {
+      transition: 0.5s;
+    }
+    
+  .aboutme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .aboutme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .skills .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .skills.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .projects .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .projects.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .contactme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .contactme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .plus .animate {
+    opacity: 1;
+  }
+  .plus.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media only screen and (max-width: 900px) and (min-width : 801px ){
+  #toggle {
+    scale: 1;
+    width: 80px;
+    height: 40px;
+    margin-right: 70px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 25px;
+    padding: 10px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  .gg {
+    display: none;
+  }
+  header .text {
+    margin-top: 50px;
+  }
+  header .text h1 {
+    font-size: 50px;
+    margin-bottom: 55px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 40px;
+    letter-spacing: 1px;
+  }
+
+  .spider {
+  scale: 0.7;
+  }
+  main .aboutme .text {
+    margin-bottom: 60px;
+    width: 90%;
+  }
+  main .aboutme .text p {
+    font-size: 27px;
+    line-height: 55px;
+    letter-spacing: 1px;
+  }
+main .h1 h1 {
+  font-size: 35px;
+}
+.cat-container {
+  scale: 1;
+}
+
+  .skill-container {
+scale: 1.2;
+margin-left:auto;
+margin-right: auto;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(50%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 90px;
+    font-size: 26px;
+  }
+  
+.projects .text h1 {
+  font-size: 38px;
+  margin-bottom: 50px;
+}
+  .container .card {
+  scale: 1;
+  margin: 20px;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    display: none;
+  }
+  .contactme form {
+   margin-left: 30px;
+    scale: 1.5;
+  }
+
+    .plus-cat {
+      scale: 1.1;
+      position: relative;
+      top: 330px;
+      left: 590px;
+    }
+    .icon {
+      font-size: 80px;
+      margin-bottom: 200px;
+      margin-left: 110px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 80px;
+      line-height: 20px;
+    }
+    footer p {
+      font-size: 20px;
+    }
+    section .animate {
+      transition: 0.5s;
+    }
+    
+  .aboutme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .aboutme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .skills .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .skills.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .projects .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .projects.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .contactme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .contactme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .plus .animate {
+    opacity: 1;
+  }
+  .plus.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 1000px) and (min-width : 901px ){
+  #toggle {
+    scale: 1;
+    width: 80px;
+    height: 40px;
+    margin-right: 70px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 28px;
+    padding: 10px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  .gg {
+    display: none;
+  }
+  header .text {
+    margin-top: 90px;
+  }
+  header .text h1 {
+    font-size: 55px;
+    margin-bottom: 55px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 40px;
+    letter-spacing: 1px;
+  }
+  nav ul i {
+    font-size: 28px;
+    padding: 2px;
+  }
+  .spider {
+  scale: 0.8;
+  }
+  main .aboutme .text {
+    margin-bottom: 60px;
+    width: 90%;
+  }
+  main .aboutme .text p {
+    font-size: 27px;
+    line-height: 55px;
+    letter-spacing: 1px;
+  }
+main .h1 h1 {
+  font-size: 35px;
+}
+.cat-container {
+  scale: 1.1;
+}
+
+  .skill-container {
+scale: 1.2;
+margin-left:auto;
+margin-right: auto;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(50%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 90px;
+    font-size: 26px;
+  }
+  
+.projects .text h1 {
+  font-size: 38px;
+  margin-bottom: 50px;
+}
+  .container .card {
+  scale: 1;
+  margin: 20px;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    scale: 1;
+  }
+  .contactme form {
+    scale: 1.2;
+  }
+
+    .plus-cat {
+      scale: 1.2;
+      position: relative;
+      top: 350px;
+      left: 720px;
+    }
+    .icon {
+      font-size: 100px;
+      margin-bottom: 200px;
+      margin-left: 150px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 80px;
+      line-height: 20px;
+    }
+    footer p {
+      font-size: 20px;
+    }
+    section .animate {
+      transition: 0.5s;
+    }
+    
+  .aboutme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .aboutme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .skills .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .skills.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .projects .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .projects.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .contactme .animate {
+    transform: scale(0.7);
+    opacity: 0;
+  }
+  
+  .contactme.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+  
+  .plus .animate {
+    opacity: 1;
+  }
+  .plus.show-animate .animate {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@media only screen and (max-width: 1100px) and (min-width : 1001px ){
+  #toggle {
+    scale: 1.1;
+    width: 80px;
+    height: 40px;
+    margin-right: 90px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 28px;
+    padding: 10px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  header .text {
+    margin-top: 110px;
+  }
+  header .text h1 {
+    font-size: 55px;
+    margin-bottom: 70px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 45px;
+    letter-spacing: 1px;
+  }
+  nav ul i {
+    font-size: 28px;
+    padding: 2px;
+  }
+  .spider {
+  scale: 0.9;
+  }
+  main .aboutme .text {
+    width: 60%;
+  }
+  main .aboutme .text p {
+    font-size: 27px;
+    line-height: 55px;
+    letter-spacing: 1px;
+  }
+main .h1 h1 {
+  font-size: 35px;
+}
+.cat-container {
+  scale: 1.2;
+}
+
+  .skill-container {
+scale: 1.1;
+margin-left: 300px;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(-70%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 80px;
+    font-size: 26px;
+  }
+  
+.projects .text h1 {
+  font-size: 38px;
+  margin-bottom: 130px;
+}
+  .container .card {
+  scale: 0.9;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    scale: 1.2;
+  }
+  .contactme form {
+    scale: 1.3;
+  }
+
+    .plus-cat {
+      scale: 1.4;
+      position: relative;
+      top: 445px;
+      left: 880px;
+    }
+    .icon {
+      font-size: 115px;
+      margin-bottom: 300px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 80px;
+      line-height: 23px;
+    }
+    footer p {
+      font-size: 25px;
+    }
+}
+
+
+@media only screen and (max-width: 1200px) and (min-width : 1101px ){
+  #toggle {
+    scale: 1.2;
+    width: 80px;
+    height: 40px;
+    margin-right: 90px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 30px;
+    padding: 18px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  header .text {
+    margin-top: 110px;
+  }
+  header .text h1 {
+    font-size: 65px;
+    margin-bottom: 70px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 50px;
+    letter-spacing: 1px;
+  }
+  nav ul i {
+    font-size: 28px;
+    padding: 5px;
+  }
+  .spider {
+  scale: 1;
+  }
+  main .aboutme .text {
+    width: 60%;
+  }
+  main .aboutme .text p {
+    font-size: 27px;
+    line-height: 55px;
+    letter-spacing: 1px;
+  }
+main .h1 h1 {
+  font-size: 35px;
+}
+.cat-container {
+  scale: 1.3;
+}
+
+  .skill-container {
+scale: 1.2;
+margin-left: 370px;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(-70%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 80px;
+    font-size: 28px;
+  }
+  
+.projects .text h1 {
+  font-size: 40px;
+  margin-bottom: 130px;
+}
+  .container .card {
+  scale: 1;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    scale: 1.3;
+  }
+  .contactme form {
+    scale: 1.4;
+  }
+
+    .plus-cat {
+      scale: 1.5;
+      position: relative;
+      top: 450px;
+      left: 1050px;
+    }
+    .icon {
+      font-size: 125px;
+      margin-bottom: 300px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 80px;
+      line-height: 23px;
+    }
+    footer p {
+      font-size: 25px;
+    }
+}
+
+@media only screen and (max-width: 1300px) and (min-width : 1201px ){
+  #toggle {
+    scale: 1.2;
+    width: 80px;
+    height: 40px;
+    margin-right: 90px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 33px;
+    padding: 18px;
+  }
+  nav ul li {
+    margin-top: 22px;
+  }
+  header .text {
+    margin-top: 110px;
+  }
+  header .text h1 {
+    font-size: 75px;
+    margin-bottom: 70px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 55px;
+    letter-spacing: 1px;
+  }
+  nav ul i {
+    font-size: 30px;
+    padding: 8px;
+  }
+  .spider {
+  scale: 1;
+  }
+  main .aboutme .text {
+    width: 60%;
+  }
+  main .aboutme .text p {
+    font-size: 28px;
+    line-height: 60px;
+    letter-spacing: 1px;
+  }
+  
+main .h1 h1 {
+  font-size: 35px;
+}
+.cat-container {
+  scale: 1.3;
+}
+
+  .skill-container {
+scale: 1.2;
+margin-left: 470px;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(-100%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 80px;
+    font-size: 28px;
+  }
+  
+.projects .text h1 {
+  font-size: 40px;
+  margin-bottom: 130px;
+}
+  .container .card {
+  scale: 1.2;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    scale: 1.3;
+  }
+  .contactme form {
+    scale: 1.4;
+  }
+
+    .plus-cat {
+      scale: 1.6;
+      position: relative;
+      top: 440px;
+      left: 1190px;
+    }
+    .icon {
+      font-size: 125px;
+      margin-bottom: 300px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 90px;
+      line-height: 23px;
+    }
+    footer p {
+      font-size: 29px;
+    }
+}
+
+@media only screen and (max-width: 1400px) and (min-width : 1301px ){
+  #toggle {
+    scale: 1.2;
+    width: 80px;
+    height: 40px;
+    margin-right: 90px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 35px;
+    padding: 18px;
+  }
+  nav ul li {
+    margin-top: 27px;
+  }
+  header .text {
+    margin-top: 110px;
+  }
+  header .text h1 {
+    font-size: 80px;
+    margin-bottom: 70px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 60px;
+    letter-spacing: 1px;
+  }
+  nav ul i {
+    font-size: 37px;
+  }
+  .spider {
+  scale: 1.1;
+  }
+  main .aboutme .text {
+    width: 60%;
+  }
+  main .aboutme .text p {
+    font-size: 28px;
+    line-height: 60px;
+    letter-spacing: 1px;
+  }
+  
+main .h1 h1 {
+  font-size: 35px;
+}
+.cat-container {
+  scale: 1.3;
+}
+
+  .skill-container {
+scale: 1.2;
+margin-left: 570px;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(-120%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 80px;
+    font-size: 28px;
+  }
+  
+.projects .text h1 {
+  font-size: 40px;
+  margin-bottom: 130px;
+}
+  .container .card {
+  scale: 1.2;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    scale: 1.3;
+  }
+  .contactme form {
+    scale: 1.4;
+  }
+
+    .plus-cat {
+      scale: 1.6;
+      position: relative;
+      top: 440px;
+      left: 1330px;
+    }
+    .icon {
+      font-size: 125px;
+      margin-bottom: 300px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 90px;
+      line-height: 23px;
+    }
+    footer p {
+      font-size: 29px;
+    }
+}
+
+@media only screen and (max-width: 1500px) and (min-width : 1401px ){
+  #toggle {
+    scale: 1.3;
+    width: 80px;
+    height: 40px;
+    margin-right: 90px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 40px;
+    padding: 18px;
+  }
+  nav ul li {
+    margin-top: 30px;
+  }
+  header .text {
+    margin-top: 110px;
+  }
+  header .text h1 {
+    font-size: 85px;
+    margin-bottom: 70px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 65px;
+    letter-spacing: 1px;
+  }
+  nav ul i {
+    font-size: 37px;
+  }
+  .spider {
+  scale: 1.1;
+  }
+  main .aboutme .text {
+    width: 60%;
+  }
+  main .aboutme .text p {
+    font-size: 28px;
+    line-height: 60px;
+    letter-spacing: 1px;
+  }
+  
+main .h1 h1 {
+  font-size: 35px;
+}
+.cat-container {
+  scale: 1.3;
+}
+
+  .skill-container {
+scale: 1.3;
+margin-left: 640px;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(-120%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 80px;
+    font-size: 28px;
+  }
+  
+.projects .text h1 {
+  font-size: 40px;
+  margin-bottom: 130px;
+}
+  .container .card {
+  scale: 1.3;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    scale: 1.3;
+  }
+  .contactme form {
+    scale: 1.4;
+  }
+
+    .plus-cat {
+      scale: 1.7;
+      position: relative;
+      top: 460px;
+      left: 1510px;
+    }
+    .icon {
+      font-size: 135px;
+      margin-bottom: 300px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 90px;
+      line-height: 23px;
+    }
+    footer p {
+      font-size: 29px;
+    }
+}
+  
+@media only screen and (max-width: 1600px) and (min-width : 1501px ){
+  #toggle {
+    scale: 1.3;
+    width: 80px;
+    height: 40px;
+    margin-right: 90px;
+  }
+
+  #toggle.active .indicator {
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 0px;
+  }
+  nav ul li a {
+    font-size: 40px;
+    padding: 18px;
+  }
+  nav ul li {
+    margin-top: 30px;
+  }
+  header .text {
+    margin-top: 110px;
+  }
+  header .text h1 {
+    font-size: 85px;
+    margin-bottom: 70px;
+    letter-spacing: 3px;
+  }
+  header .text p {
+    font-size: 70px;
+    letter-spacing: 1px;
+  }
+  nav ul i {
+    font-size: 37px;
+  }
+  .spider {
+  scale: 1.1;
+  }
+  main .aboutme .text {
+    width: 60%;
+  }
+  main .aboutme .text p {
+    font-size: 28px;
+    line-height: 60px;
+    letter-spacing: 1px;
+  }
+  
+main .h1 h1 {
+  font-size: 35px;
+}
+.cat-container {
+  scale: 1.3;
+}
+
+  .skill-container {
+scale: 1.3;
+margin-left: 730px;
+margin-bottom: 50px;
+  }
+  .skills .orange-cat-container {
+scale: 0.9;
+transform: translate(-140%, 50%);
+  }
+  .skills .text {
+    margin-bottom: 80px;
+    font-size: 28px;
+  }
+  
+.projects .text h1 {
+  font-size: 40px;
+  margin-bottom: 130px;
+}
+  .container .card {
+  scale: 1.3;
+  }
+  .contactme {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+  .back-cat-container {
+    scale: 1.3;
+  }
+  .contactme form {
+    scale: 1.4;
+  }
+
+    .plus-cat {
+      scale: 1.8;
+      position: relative;
+      top: 460px;
+      left: 1710px;
+    }
+    .icon {
+      font-size: 155px;
+      margin-bottom: 300px;
+    }
+    .plus .animate {
+      transform: scale(1);
+      opacity: 1;
+    }
+    footer {
+      height: 90px;
+      line-height: 23px;
+    }
+    footer p {
+      font-size: 29px;
+    }
+}
